@@ -31,19 +31,20 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    
+    'accounts',
+    
+    # apps
+    'chat',
+    'paginas',
+    'grupo',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    # apps
-    'chat',
-    'paginas',
-    'grupo',
-
-    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'inicio'
 LOGOUT_REDIRECT_URL = 'inicio'
+
+# Modelo de usuario
+AUTH_USER_MODEL = 'accounts.UsuarioPersonalizado'
