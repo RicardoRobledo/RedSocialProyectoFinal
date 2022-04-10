@@ -1,0 +1,13 @@
+<!-- templates/registration/login.html -->
+{% block title %}Inicio de sesion{% endblock title %}
+
+{% block content %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button class="btn btn-success ml-2" type="submit">Iniciar sesion</button>
+    </form>
+
+{% endblock content %}
