@@ -25,5 +25,8 @@ urlpatterns = [
     
     # paginas
     path('', include('paginas.urls')),
+    
+    # grupo
+    path('grupo/', include('grupo.urls')),
 
 ]

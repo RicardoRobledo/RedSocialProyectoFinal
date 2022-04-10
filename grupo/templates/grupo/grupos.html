@@ -1,0 +1,22 @@
+{% block title %}Grupos a los que puedes unirte{% endblock title %}
+
+{% block content %}
+
+    {% for group in object_list %}
+        <div class="card">
+
+        <div class="card-header">
+        <span class="text-muted">Creado por {{ group.propietario }} | {{ group.fecha }}</span>
+        </div>
+
+        <div class="card-body">
+        <!-- Changes start here! -->
+        <a>Ir al grupo</a>
+        </div>
+
+        <!-- Changes end here! -->
+        </div>
+        <br />
+    {% endfor %}
+
+{% endblock content %}

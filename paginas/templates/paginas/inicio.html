@@ -28,12 +28,16 @@
 
             <label class="logo">QuAi</label>
 
-            <!--<ul class="menu_items">-->
-                <!--<li id="separacion_item">Groups</li></ul>-->
+            <ul class="menu_items">
+
+                <!-- Mostrar nombre de usuario si esta autentificado -->
+                <li id="separacion_item">Crear cuenta de desarrollador</li>
+
+            </ul>
 
             <div class="botones_separacion">
-                <a href="{% url 'signup' %}">Registro</a>  
-                <a href="{% url 'login' %}">Inicio sesion</a>
+                <a href="{% url 'signup' %}"><button>Registro</button></a>
+                <a href="{% url 'login' %}"><button>Inicio sesion</button></a>
             </div>
 
         </nav>
