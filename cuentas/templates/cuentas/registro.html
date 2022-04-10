@@ -1,14 +1,9 @@
-<!-- templates/registration/signup.html -->
-{% extends 'base.html' %}
-
-{% block title %}Sign Up{% endblock title %}
+{% block title %}Registro{% endblock title %}
 
 {% block content %}
-    <h2>Registro</h2>
-
     <form method="post">
         {% csrf_token %}
-        {{ form|crispy }}
+        {{ form.as_p }}
         <button class="btn btn-success" type="submit">Registro</button>
     </form>
 {% endblock content %}
