@@ -1,22 +1,85 @@
-{% block title %}Grupos a los que puedes unirte{% endblock title %}
+{% load static %}
 
-{% block content %}
+<!DOCTYPE html>
 
-    {% for group in object_list %}
-        <div class="card">
 
-        <div class="card-header">
-        <span class="text-muted">Creado por {{ group.propietario }} | {{ group.fecha }}</span>
+<html lang="en">
+
+
+<head>
+
+
+    <meta charset="utf-8">
+	<title>Grupos</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+    <!-- Pagina 1 -->
+
+    <header>
+
+
+        <!-- Menu -->
+        <nav class="menu">
+
+            <label class="logo">Grupos a unirte</label>
+
+            <ul class="menu_items">
+                <li id="separacion_item">
+                    {{user.username}}
+                </li>
+            </ul>
+
+            <div class="botones_separacion">
+                <a href="{% url 'logout' %}"><button>Cerrar sesion</button></a>
+            </div>  
+
+        </nav>
+
+
+    </header>
+
+
+    <!-- relleno -->
+    <section class="contenedor0">
+
+        <!-- segundo contenedor -->
+        <div class="contenedor2">
+            <img src="{% static 'imgs/chica_otaku.png' %}" width="440px" height="530px">
         </div>
 
-        <div class="card-body">
-        <!-- Changes start here! -->
-        <a>Ir al grupo</a>
-        </div>
 
-        <!-- Changes end here! -->
-        </div>
-        <br />
-    {% endfor %}
+        <!-- primer contenedor -->
+        <div class="contenedor">
+            {% for grupo in object_list %}
+                <div class="card">
+    
+                <div class="card-header">
+                <span class="text-muted">Creado por: {{ grupo.propietario }} | {{ grupo.fecha }}</span>
+                </div>
+    
+                <span class="text-muted">Descripcion: {{ grupo.descripcion }}</span>
+    
+                <div class="card-body">
+                <!-- Changes start here! -->
+                <a href="">Ir al grupo</a>
+                </div>
+    
+                <!-- Changes end here! -->
+                </div>
+                <br />
+                {% endfor %}
 
-{% endblock content %}
+          </div>
+    
+
+    </section>
+
+</body>
+
+
+</html>
