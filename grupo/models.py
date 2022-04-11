@@ -1,7 +1,6 @@
-from turtle import ondrag
-from unittest.util import _MAX_LENGTH
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.urls import reverse
 
 
 class Grupo(models.Model):
@@ -16,8 +15,6 @@ class Grupo(models.Model):
     
     def __str__(self):
         return self.nombre_grupo
-
-    # para agregar la referencia al usuario una vez se crea el grupo
-    def form_valid(self, form):
-        form.instance.propietario = self.request.user
-        return super().form_valid(form)
+    
+    def get_absolute_url(self):
+        return reverse('lista_grupos')
