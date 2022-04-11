@@ -28,5 +28,8 @@ urlpatterns = [
     
     # grupo
     path('grupo/', include('grupo.urls')),
+    
+    # chat
+    path('chat/', include('chat.urls')),
 
 ]
