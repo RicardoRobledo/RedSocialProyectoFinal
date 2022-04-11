@@ -16,3 +16,8 @@ class Grupo(models.Model):
     
     def __str__(self):
         return self.nombre_grupo
+
+    # para agregar la referencia al usuario una vez se crea el grupo
+    def form_valid(self, form):
+        form.instance.propietario = self.request.user
+        return super().form_valid(form)

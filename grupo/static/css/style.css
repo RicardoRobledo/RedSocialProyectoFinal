@@ -76,15 +76,6 @@ button:hover{
     min-height: 100%;
 }
 
-.contenedor{
-    height:575px; overflow: auto;
-    display:flex;
-    flex-flow: column;
-    width: 50%;
-    align-items: center;
-    overflow-y: auto;
-}
-
 .contenedor2{
     display:flex;
     align-items: flex-end;
