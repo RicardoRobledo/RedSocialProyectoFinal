@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     
+    'xhtml2pdf',
+    
     # vistas bases de datos
     'dbview',
     
