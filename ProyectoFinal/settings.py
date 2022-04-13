@@ -92,8 +92,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'mssql',
         'NAME': 'redsocial',
-        'USER': 'sa',
-        'PASSWORD': '4444',
+        'USER': 'user',
+        'PASSWORD': 'user123456789',
         'HOST': 'Zero\SQLEXPRESS',
         'PORT': '',
         'OPTIONS': {

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.urls import reverse
+from dbview.models import DbView
 
 
 class Grupo(models.Model):
@@ -12,6 +13,11 @@ class Grupo(models.Model):
         get_user_model(),
         on_delete=models.CASCADE,
     )
+    
+    @classmethod
+    def view(cls):
+        q = (Grupo.objects.filter().values('grupo_id', 'nombre_grupo', 'descripcion', 'fecha', 'propietario'))
+        return str(q.query)
     
     def __str__(self):
         return self.nombre_grupo
