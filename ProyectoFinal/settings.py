@@ -32,14 +32,16 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     
-    'accounts',
+    # vistas bases de datos
+    
     
     # apps
+    'accounts',
     'chat',
     'paginas',
     'grupo',
     
-    # formularios crispy
+    # formularios crispy de Bootstrap
     'crispy_forms',
     
     'django.contrib.admin',
@@ -90,8 +92,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'mssql',
         'NAME': 'redsocial',
-        'USER': 'djangouser',
-        'PASSWORD': 'djangoback3nd1234',
+        'USER': 'sa',
+        'PASSWORD': '4444',
         'HOST': 'Zero\SQLEXPRESS',
         'PORT': '',
         'OPTIONS': {

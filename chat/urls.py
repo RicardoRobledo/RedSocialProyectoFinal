@@ -3,5 +3,6 @@ from .views import ListaMensajesView, MensajeView
 
 
 urlpatterns = [
-    path('conversaciones/', ListaMensajesView.as_view(), name='chat')
+    path('conversaciones/<int:pk>/', ListaMensajesView.as_view(), name='chat'),
+    path('crear_mensaje/<int:pku>/', MensajeView.as_view(), name='crear_mensaje')
 ]
