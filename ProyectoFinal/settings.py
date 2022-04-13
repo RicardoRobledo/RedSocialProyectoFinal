@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     
     # vistas bases de datos
-    
+    'dbview',
     
     # apps
     'accounts',
