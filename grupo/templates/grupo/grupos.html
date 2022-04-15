@@ -79,6 +79,14 @@
 
                     <div class="card-footer">
                         <a href="{% url 'chat' grupo.pk %}">Ir al grupo</a>
+
+                        {% ifequal grupo.propietario.id request.user.id %}
+
+                        | <a href="{% url 'editar_grupo' grupo.pk %}">Editar</a> |
+                        <a href="{% url 'eliminar_grupo' grupo.pk %}">Eliminar</a>
+                        
+                        {% endifequal %}
+
                     </div>
         
                 <!-- Changes end here! -->

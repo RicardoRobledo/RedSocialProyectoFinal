@@ -1,10 +1,12 @@
 from io import BytesIO
-from django.views.generic import ListView, CreateView, View
+from django.views.generic import ListView, View
+from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from .models import Grupo
 from django.db import transaction
 from django.http import HttpResponse
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
+from django.urls import reverse_lazy
 from datetime import date
 
 
@@ -60,3 +62,17 @@ class CrearGrupoView(CreateView):
     def form_valid(self, form):
         form.instance.propietario = self.request.user
         return super().form_valid(form)
+
+
+class EliminarGrupoView(DeleteView):
+    
+    model = Grupo
+    template_name = 'grupo/eliminar_grupo.html'
+    success_url = reverse_lazy('lista_grupos')
+
+
+class EditarGrupoView(UpdateView):
+    
+    model = Grupo
+    template_name = 'grupo/editar_grupo.html'
+    fields = ('nombre_grupo', 'descripcion',)

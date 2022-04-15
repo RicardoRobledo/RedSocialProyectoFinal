@@ -1,0 +1,6 @@
+{% block content %}
+    <form action="" method="post">{% csrf_token %}
+        <p>¿Quieres eliminar el post: "{{ grupo.id }}"?</p>
+        <button class="btn btn-danger ml-2" type="submit">Eliminar</button>
+    </form>
+{% endblock content %}
