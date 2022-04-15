@@ -34,11 +34,14 @@
 
             <ul class="menu_items">
                 <li id="separacion_item">
-                    {{user.username}}
+                    {{user.username}}    
                 </li>
             </ul>
 
             <div class="botones_separacion">
+                {% ifequal request.user.id 1%}
+                    <a href="{% url 'generar_reporte' %}"><button>Generar Reporte</button></a>
+                {% endifequal %}
                 <a href="{% url 'crear_grupo' %}"><button>Crear grupo</button></a>
                 <a href="{% url 'logout' %}"><button>Cerrar sesion</button></a>
             </div> 
@@ -80,12 +83,12 @@
                     <div class="card-footer">
                         <a href="{% url 'chat' grupo.pk %}">Ir al grupo</a>
 
-                        {% ifequal grupo.propietario.id request.user.id %}
+                        {% if grupo.propietario.id == request.user.id or request.user.id == 1%}
 
                         | <a href="{% url 'editar_grupo' grupo.pk %}">Editar</a> |
                         <a href="{% url 'eliminar_grupo' grupo.pk %}">Eliminar</a>
                         
-                        {% endifequal %}
+                        {% endif %}
 
                     </div>
         
