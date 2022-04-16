@@ -32,6 +32,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     
+    # api
+    'api.apps.ApiConfig',
+    
     # pdf
     'xhtml2pdf',
     
@@ -173,3 +176,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication', # new
     ],
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # new
+
+SITE_ID = 1 # new

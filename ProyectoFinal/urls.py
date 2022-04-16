@@ -17,7 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    
     path('admin/', admin.site.urls),
+    
+    # api
+    path('api/v1/', include('api.urls')),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/v1/dj-rest-auth/', include('dj_rest_auth.urls')),
+    path('api/v1/dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),
     
     # accounts
     path('accounts/', include('django.contrib.auth.urls')),
@@ -31,8 +38,5 @@ urlpatterns = [
     
     # chat
     path('chat/', include('chat.urls')),
-    
-    # api
-    path('api/', include('api.urls')),
 
 ]

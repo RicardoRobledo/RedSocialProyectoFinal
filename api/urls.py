@@ -11,7 +11,7 @@ urlpatterns = [
 
 
 router = SimpleRouter()
-router.register('grupos/', GruposViewSet, basename='grupos')
+router.register('grupos', GruposViewSet, basename='grupos')
 router.register('', UserViewSet, basename='users')
 
 urlpatterns = router.urls
