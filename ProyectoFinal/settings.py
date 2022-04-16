@@ -36,7 +36,13 @@ INSTALLED_APPS = [
     'xhtml2pdf',
     
     # django rest framework
-    'rest_framework',
+    'rest_framework', 
+    'rest_framework.authtoken', 
+    'allauth', 
+    'allauth.account', 
+    'allauth.socialaccount',
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
     
     # vistas bases de datos
     'dbview',
@@ -56,6 +62,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -155,3 +162,14 @@ LOGOUT_REDIRECT_URL = 'inicio'
 
 # Modelo de usuario
 AUTH_USER_MODEL = 'accounts.UsuarioPersonalizado'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated', # new
+    ],
+    
+    'DEFAULT_AUTHENTICATION_CLASSES': [ # new
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication', # new
+    ],
+}
