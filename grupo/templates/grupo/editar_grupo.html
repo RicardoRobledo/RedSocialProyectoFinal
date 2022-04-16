@@ -1,4 +1,15 @@
+{% extends 'grupo/base.html' %}
+
+
+{% block title %}Editar grupo{% endblock title %}
+
+
 {% block content %}
+
+    <h1 class="formato">
+        <a href="{% url 'lista_grupos' %}"><button>Regresar</button></a>
+    </h1>
+
     <h1>Editar</h1>
     <form action="" method="post">{% csrf_token %}
         {{ form.as_p }}

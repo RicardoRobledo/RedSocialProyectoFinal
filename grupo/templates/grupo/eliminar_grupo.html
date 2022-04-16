@@ -1,4 +1,15 @@
+{% extends 'grupo/base.html' %}
+
+
+{% block title %} Eliminar grupo {% endblock title %}
+
+
 {% block content %}
+
+    <h1 class="formato">
+        <a href="{% url 'lista_grupos' %}"><button>Regresar</button></a>
+    </h1>
+
     <form action="" method="post">{% csrf_token %}
         <p>¿Quieres eliminar el grupo "{{ grupo.nombre_grupo }}"?</p>
         <button class="btn btn-danger ml-2" type="submit">Eliminar</button>
