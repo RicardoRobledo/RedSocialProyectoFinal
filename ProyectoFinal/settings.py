@@ -32,7 +32,11 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     
+    # pdf
     'xhtml2pdf',
+    
+    # django rest framework
+    'rest_framework',
     
     # vistas bases de datos
     'dbview',
