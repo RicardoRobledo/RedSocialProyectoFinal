@@ -31,5 +31,8 @@ urlpatterns = [
     
     # chat
     path('chat/', include('chat.urls')),
+    
+    # api
+    path('api/', include('api.urls')),
 
 ]
