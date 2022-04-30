@@ -36,6 +36,7 @@
             <div class="botones_separacion">
                 {% ifequal request.user.id 1%}
                     <a href="{% url 'generar_reporte' %}"><button>Generar Reporte</button></a>
+                    <a href="{% url 'grafica' %}"><button>Estadisticas</button></a>
                 {% endifequal %}
                 <a href="{% url 'crear_grupo' %}"><button>Crear grupo</button></a>
                 <a href="{% url 'logout' %}"><button>Cerrar sesion</button></a>

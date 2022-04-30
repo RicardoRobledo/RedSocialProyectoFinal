@@ -8,14 +8,49 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 from django.urls import reverse_lazy
 from datetime import date
+import matplotlib.pyplot as plt
+import base64
+from io import BytesIO
+from django.shortcuts import render
 
 
 class GruposView(ListView):
     
     model = Grupo
     template_name = 'grupo/grupos.html'
+
+
+def obtener_grafico():
     
+    buffer = BytesIO()
+    plt.savefig(buffer, format='png')
+    buffer.seek(0)
+    image_png = buffer.getvalue()
+    graph = base64.b64encode(image_png)
+    graph = graph.decode('utf-8')
+    buffer.close()
     
+    return graph
+
+
+def grafica(request):
+
+    grupos = [i.propietario.username for i in list(Grupo.objects.all())]
+    usuarios = set(grupos)
+    cantidad_grupos = [grupos.count(i) for i in usuarios]
+    
+    plt.switch_backend('AGG')
+    plt.figure(figsize=(12,6))
+    plt.title('Cantidad de grupos por usuario')
+    plt.plot(list(usuarios), cantidad_grupos)
+    plt.xticks(rotation=45)
+    plt.xlabel('usuarios')
+    plt.ylabel('cantidad de grupos')
+    plt.tight_layout()
+    
+    return render(request, 'grupo/grafica.html', {'chart': obtener_grafico()})
+
+
 def reporte(request):
     
     response = HttpResponse(content_type='application/pdf')

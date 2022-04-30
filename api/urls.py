@@ -6,6 +6,6 @@ from rest_framework.routers import SimpleRouter
 
 router = SimpleRouter()
 router.register('grupos', GruposViewSet, basename='grupos')
-router.register('users', UserViewSet, basename='users')
+router.register('', UserViewSet, basename='users')
 
 urlpatterns = router.urls
