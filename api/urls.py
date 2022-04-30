@@ -1,17 +1,11 @@
-from django.urls import path
+from urllib.parse import urlparse
+from django.urls import path, include
 from .views import GruposViewSet, UserViewSet
 from rest_framework.routers import SimpleRouter
 
 
-'''
-urlpatterns = [
-    path('', GruposViewSet.as_view(), name='home'),
-]
-'''
-
-
 router = SimpleRouter()
 router.register('grupos', GruposViewSet, basename='grupos')
-router.register('', UserViewSet, basename='users')
+router.register('users', UserViewSet, basename='users')
 
 urlpatterns = router.urls
