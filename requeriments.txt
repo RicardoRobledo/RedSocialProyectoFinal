@@ -14,7 +14,6 @@ dj-rest-auth==2.2.4
 Django==3.2
 django-allauth==0.50.0
 django-crispy-forms==1.9.2
-django-database-view==0.3.0
 djangorestframework==3.13.1
 fonttools==4.33.3
 future==0.18.2

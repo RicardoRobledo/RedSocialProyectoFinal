@@ -111,7 +111,7 @@ DATABASES = {
         'USER': 'user',
         'PASSWORD': 'user123456789',
         'HOST': 'Zero\SQLEXPRESS',
-        'PORT': '',
+        'PORT': '1433',
         'OPTIONS': {
             'DRIVER': 'ODBC Driver 17 for SQL Server',
         },

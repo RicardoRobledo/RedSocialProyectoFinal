@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.urls import reverse
-from dbview.models import DbView
 
 
 class Grupo(models.Model):
@@ -14,13 +13,18 @@ class Grupo(models.Model):
         on_delete=models.CASCADE,
     )
     
-    @classmethod
-    def view(cls):
-        q = (Grupo.objects.filter().values('grupo_id', 'nombre_grupo', 'descripcion', 'fecha', 'propietario'))
-        return str(q.query)
-    
     def __str__(self):
         return self.nombre_grupo
     
     def get_absolute_url(self):
         return reverse('lista_grupos')
+
+
+class MiVista(models.Model):
+    
+    propietario_id = models.BigIntegerField(primary_key=True)
+    cantidad_grupos = models.IntegerField()
+    
+    class Meta:
+        managed = False
+        db_table = "mi_vista"
