@@ -1,7 +1,7 @@
 from io import BytesIO
 from django.views.generic import ListView, View
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
-from .models import Grupo
+from .models import Grupo, MiVista
 from django.db import transaction
 from django.http import HttpResponse
 from reportlab.pdfgen import canvas
@@ -34,10 +34,15 @@ def obtener_grafico():
 
 
 def grafica(request):
-
-    grupos = [i.propietario.username for i in list(Grupo.objects.all())]
-    usuarios = set(grupos)
-    cantidad_grupos = [grupos.count(i) for i in usuarios]
+    
+    usuarios = []
+    cantidad_grupos = []
+    
+    # Aplicando uso de vista
+    for i in list(MiVista.objects.all().values()):
+        
+        usuarios.append(i['username'])
+        cantidad_grupos.append(i['cantidad_grupos'])
     
     plt.switch_backend('AGG')
     plt.figure(figsize=(12,6))

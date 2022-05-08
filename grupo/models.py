@@ -20,6 +20,7 @@ class Grupo(models.Model):
         return reverse('lista_grupos')
 
 
+# Vista
 class MiVista(models.Model):
     
     username = models.CharField(max_length=50)
