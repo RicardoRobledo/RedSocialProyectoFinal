@@ -22,8 +22,8 @@ class Grupo(models.Model):
 
 class MiVista(models.Model):
     
-    propietario_id = models.BigIntegerField(primary_key=True)
-    cantidad_grupos = models.IntegerField()
+    username = models.CharField(max_length=50)
+    cantidad_grupos = models.IntegerField(primary_key=True)
     
     class Meta:
         managed = False
