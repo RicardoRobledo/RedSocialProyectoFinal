@@ -47,7 +47,7 @@ def grafica(request):
     plt.switch_backend('AGG')
     plt.figure(figsize=(12,6))
     plt.title('Cantidad de grupos por usuario')
-    plt.plot(list(usuarios), cantidad_grupos)
+    plt.plot(usuarios, cantidad_grupos)
     plt.xticks(rotation=45)
     plt.xlabel('usuarios')
     plt.ylabel('cantidad de grupos')
