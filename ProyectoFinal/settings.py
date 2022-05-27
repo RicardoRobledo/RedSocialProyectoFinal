@@ -47,9 +47,6 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     'dj_rest_auth.registration',
     
-    # vistas bases de datos
-    'dbview',
-    
     # apps
     'accounts',
     'chat',
@@ -109,7 +106,7 @@ DATABASES = {
         'ENGINE': 'mssql',
         'NAME': 'redsocial',
         'USER': 'user',
-        'PASSWORD': 'user123456789',
+        'PASSWORD': 'djangouser',
         'HOST': 'Zero\SQLEXPRESS',
         'PORT': '1433',
         'OPTIONS': {
