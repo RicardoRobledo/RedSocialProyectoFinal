@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model # new
 class GrupoSerializer(serializers.ModelSerializer):
 
     class Meta:
-        fields = ('nombre_grupo', 'descripcion', 'fecha', 'propietario',)
+        fields = ('id', 'nombre_grupo', 'descripcion', 'fecha', 'propietario',)
         model = Grupo
 
 

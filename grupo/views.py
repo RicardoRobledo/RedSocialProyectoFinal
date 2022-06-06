@@ -12,9 +12,10 @@ import matplotlib.pyplot as plt
 import base64
 from io import BytesIO
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
-
-class GruposView(ListView):
+class GruposView(LoginRequiredMixin, ListView):
     
     model = Grupo
     template_name = 'grupo/grupos.html'
@@ -33,6 +34,7 @@ def obtener_grafico():
     return graph
 
 
+@login_required
 def grafica(request):
     
     usuarios = []
@@ -56,6 +58,7 @@ def grafica(request):
     return render(request, 'grupo/grafica.html', {'chart': obtener_grafico()})
 
 
+@login_required
 def reporte(request):
     
     response = HttpResponse(content_type='application/pdf')
@@ -92,7 +95,7 @@ def reporte(request):
     return response
         
 
-class CrearGrupoView(CreateView):
+class CrearGrupoView(LoginRequiredMixin, CreateView):
     
     model = Grupo
     template_name = 'grupo/creacion_grupo.html'
@@ -104,14 +107,14 @@ class CrearGrupoView(CreateView):
         return super().form_valid(form)
 
 
-class EliminarGrupoView(DeleteView):
+class EliminarGrupoView(LoginRequiredMixin, DeleteView):
     
     model = Grupo
     template_name = 'grupo/eliminar_grupo.html'
     success_url = reverse_lazy('lista_grupos')
 
 
-class EditarGrupoView(UpdateView):
+class EditarGrupoView(LoginRequiredMixin, UpdateView):
     
     model = Grupo
     template_name = 'grupo/editar_grupo.html'

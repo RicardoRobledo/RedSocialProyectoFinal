@@ -1,8 +1,9 @@
 from django.views.generic import ListView, CreateView
 from .models import Mensaje
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class MensajeView(CreateView):
+class MensajeView(LoginRequiredMixin, CreateView):
     
     model = Mensaje
     template_name = 'chat/crear_mensaje.html'
@@ -13,7 +14,7 @@ class MensajeView(CreateView):
         return super().form_valid(form)
 
 
-class ListaMensajesView(ListView):
+class ListaMensajesView(LoginRequiredMixin, ListView):
 
     model = Mensaje
     template_name = 'chat/listar_mensajes.html'
