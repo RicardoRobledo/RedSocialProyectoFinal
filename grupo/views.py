@@ -14,6 +14,8 @@ from io import BytesIO
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from django.db import connection
+
 
 class GruposView(LoginRequiredMixin, ListView):
     
@@ -77,14 +79,23 @@ def reporte(request):
     
     c.line(460, 747, 560, 747)
     
-    datos = Grupo.objects.all()
+    #datos = Grupo.objects.all()
+
+    cursor = connection.cursor()
+
+    try:
+        cursor.execute('EXECUTE my_proc')
+        datos = cursor.fetchall()
+        print(datos)
+    finally:
+        cursor.close()
+    
     fila=600
     
     for dato in datos:
-        c.drawString(30, fila, str(dato.id))
-        c.drawString(100, fila, str(dato))
-        c.drawString(200, fila, str(dato.propietario))
-        c.drawString(300, fila, str(dato.fecha))
+        c.drawString(30, fila, str(dato[0]))
+        c.drawString(100, fila, str(dato[1]))
+        c.drawString(300, fila, str(dato[3]))
         fila-=40
     
     c.save()
