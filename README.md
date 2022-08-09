@@ -5,6 +5,14 @@ This is a basic project of a social network
 <br>
 
 
+<p align="center">
+    <img src="https://github.com/RicardoRobledo/SocialNetworkTest/blob/main/img.jpeg" width="800px" height="400px">
+<p>
+
+
+<br>
+
+
 ## Made up with 🛠️
 - [Python](https://www.python.org/downloads/) - Programming language
 - [Django](https://www.djangoproject.com/) - Python's framework to create web applications
