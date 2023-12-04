@@ -25,6 +25,10 @@ This is a basic project of a social network
 
 <br>
 
+## Video
+- [Link](https://youtube.com/playlist?list=PL-aX2gJc0Hoi1g0CziiPtOTXuoMLLqgT6&feature=shared)
+
+<br>
 
 ## Author ✒️
 - Ricardo Reyes Robledo - [RicardoRobledo](https://github.com/RicardoRobledo)
